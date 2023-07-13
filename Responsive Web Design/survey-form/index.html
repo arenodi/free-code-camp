@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Andre App</title>
+    <link rel='stylesheet' href='styles.css'>
+  </head>
+  <body>
+    <h1 id='title'>Andre Survey Form</h1>
+    <p id='description' class='description'>Survey form created as a certification project.</p>
+    <form id='survey-form' method='post'>
+      <fieldset>
+        <label id='name-label' for='name'>Name: 
+          <input id='name' type='text' placeholder='Enter your name' required>
+        </label>
+        <label id='email-label' for='email'> Email: 
+          <input id='email' type='email' placeholder='andre@andre.com' required>
+        </label>
+        <label id='number-label' for='number'>Age:
+          <input id='number' min='16' max='120' type='number' placeholder='Your age'>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label id='dropdown-label' for='dropdown'>Which learning method do you prefer? 
+          <select id='dropdown'>
+            <option value=''>Select option</option>
+            <option value='1'>In Person</option>
+            <option value='2'>Online</option>
+            <option value='3'>Hybrid</option>
+          </select>
+        </label>
+        <label id='experience-label' for='experience'>Tell us your experience: 
+          <textarea id='experience' placeholder='Enter your experience here...'></textarea>
+      </fieldset>
+      <fieldset>
+        <label id='student-label' for='student'>
+          <input type='radio' id='student' name='user-type' value='student' class='inline'> I'm a Student
+        </label>
+        <label id='teacher-label' for='teacher'>
+          <input type='radio' id='teacher' name='user-type' value='teacher' class='inline'> I'm a Teacher
+        </label>
+      </fieldset>
+      <fieldset>
+        <p id='question'>What are you currently learning/teaching?</p>
+        <label id='css-label' for='css'>
+          <input type='checkbox' id='css' value='css' class='inline'> CSS
+        </label>
+        <label id='html-label' for='html'>
+          <input type='checkbox' id='html' value='html' class='inline'> HTML
+        </label>
+        <label id='javascript-label' for='javascript'>
+          <input type='checkbox' id='javascript' value='javascript' class='inline'> JavaScript
+        </label>
+        <label id='python-label' for='python'>
+          <input type='checkbox' id='python' value='python' class='inline'> Python
+        </label>
+      </fieldset>
+      <input type='submit' id='submit' value='Submit'>
+    </form>
+  </body>
+</html>
