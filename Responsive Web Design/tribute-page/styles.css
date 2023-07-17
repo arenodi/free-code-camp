@@ -1,0 +1,118 @@
+* {
+    font-size: 16px;
+    font-family: Georgia, sans-serif;
+  }
+  
+  main {
+    background-color: rgb(222, 222, 222);
+    padding: 0.5em;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    margin: 2rem 1rem 0;
+  }
+  
+  #description {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  .img-div {
+    box-sizing:border-box;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 1em;
+  }
+  
+  img {
+    display:block;
+    margin: 0 auto;
+    width:90%;
+    max-width:100%;
+    height: auto;
+    border-radius: 1em;
+  }
+  
+  #img-caption {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .bold {
+    font-weight:bold;
+  }
+  
+  #tribute-info {
+    margin: 0 auto;
+    padding: 1em;
+    width:95%;
+    max-width: 500px;
+  }
+  
+  #info-header {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  #item {
+    margin: 1em 0;
+  }
+  
+  #quote-div {
+    margin: 2rem 0 0;
+    padding: 1rem;
+    background-color: #f6f6f6;
+    border-radius: 25px;
+  }
+  
+  #quote {
+    color: #2f2f2f;
+    font-size: 1.2rem;
+    text-align:left;
+  }
+  
+  #author {
+    font-size: 1.2rem;
+    color: #2f2f2f;
+    margin-right: 3rem;
+    text-align:right;
+  }
+  
+  .italic {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+  
+  #wiki-page {
+    margin: 0 auto;
+    padding: 1em;
+    width:95%;
+    max-width: 600px;
+  }
+  
+  #wiki {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  #wiki a{
+    text-decoration:none;
+    color: black;
+    font-size: 1.3rem;
+  }
+  
+  #wiki a:hover{
+    text-decoration:none;
+    background-color: #f2f2f2;
+    padding: 0.3rem;
+    color: black;
+    font-size: 1.3rem;
+  }
