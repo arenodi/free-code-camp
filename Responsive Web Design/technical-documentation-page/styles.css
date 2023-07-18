@@ -1,0 +1,165 @@
+* {
+    box-sizing : border-box;
+  }
+  
+  html {
+    font-family: Tahoma, sans-serif;
+    background-color: #202020;
+    color: white;
+    line-height: 1.8rem;
+  }
+  
+  body {
+    height:100%;
+  }
+  
+  #navbar {
+    position: fixed;
+    min-width: 250px;
+    width: 300px;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color:#f0f0f0;
+    color: black;
+  }
+  
+  #navbar header {
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 1rem 0 0 1rem;
+  }
+  
+  #navbar ul {
+    list-style-type: none;
+    margin-left: -2rem;
+    overflow-x:auto;
+    overflow-y:hidden;
+  }
+  
+  #navbar li {
+    margin-left:-0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  #navbar li:hover {
+    background-color:#4e4e4e;
+  }
+  
+  #navbar a {
+    color:black;
+    text-decoration: none;
+  }
+  
+  #navbar a:hover {
+      color: #fff;
+  }
+  
+  #main-doc {
+    max-width: 800px;
+    min-width: 200px;
+    margin-left:300px;
+  }
+  
+  .main-section {
+    width: 100%;
+    display: block;
+    margin: 1rem;
+    scroll-margin-top: 1rem;
+  }
+  
+  .main-section header {
+    font-size: 1.8em;
+    font-weight: normal;
+    margin-top: 1em;
+  }
+  
+  .level-one {
+    width:90%;
+  }
+  
+  .level-two li {
+    margin-top: 0.5rem;
+  }
+  
+  .sub-section {
+    width: 100%;
+    display: block;
+  }
+  
+  .sub-section header {
+    font-size: 1.5rem;
+  }
+  
+  .code-snippet {
+    display: block;
+    width: fit-content;
+    padding: 0 1.2rem 0 0;
+    background-color: #f0f0f0;
+    border-left: 8px solid #4f4f4f;
+    border-radius: 15px;
+    color: black;
+  
+  }
+  
+  .note {
+    padding: 1rem;
+    background-color: #c8d4f9;
+    color: black;
+    border-left: 8px solid #25439f;
+    border-radius: 15px;
+  }
+  
+  .note .important {
+    font-weight: bold;
+    color: #25439f;
+  }
+  
+  #level4-link {
+    color:black;
+    text-decoration:none;
+  }
+  
+  #level4-link:hover {
+    color:white;
+    background-color:#25439f;
+    padding:0.2rem;
+  }
+  
+  #Reference a {
+    color:white;
+    text-decoration: none;
+  }
+  
+  #Reference a:hover {
+    color:black;
+    background-color:#f0f0f0;
+    padding:0.2rem;
+  }
+  
+  @media screen and (max-width: 800px){
+    #navbar {
+      position: fixed;
+      width: 100%;
+      height: 230px;
+      top: 0px;
+      left: 0px;
+      background-color:#f0f0f0;
+      color: black;
+      overflow-x:hidden;
+      overflow-y:auto;
+    }
+
+    #main-doc {
+      max-width: 800px;
+      min-width: 200px;
+      margin: 250px auto 0;
+    }
+
+    .main-section {
+        width: 100%;
+        display: block;
+        margin: 1rem;
+        scroll-margin-top: 250px;
+      }
+  }

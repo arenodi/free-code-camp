@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <link rel='stylesheet' href="styles.css">
+  </head>
+  <body>
+    <nav id='navbar'>
+      <header>
+        Media Queries
+      </header>
+      <ul>
+        <li><a href='#Introduction' class='nav-link'>Introduction</a></li>
+        <li><a href='#Syntax' class='nav-link'>Syntax</a></li>
+        <li><a href='#Targeting_media_types' class='nav-link'>Targeting media types</a></li>
+        <li><a href='#Targeting_media_features' class='nav-link'>Targeting media features</a></li>
+        <li><a href='#Creating_complex_media_queries' class='nav-link'>Creating complex media queries</a></li>
+        <li><a href='#Syntax_improvements_in_Level_4' class='nav-link'>Syntax improvements in Level 4</a></li>
+        <li><a href='#Reference' class='nav-link'>Reference</a></li>
+      </ul>
+    </nav>
+    <main id='main-doc'>
+      <section id='Introduction' class='main-section'>
+        <header>
+          Introduction
+        </header>
+        <p class='section-intro'>Media queries allow you to apply CSS styles depending on a device's general type (such as print vs. screen) or other characteristics such as screen resolution or browser viewport width. Media queries are used for the following:</p>
+        <ul class='level-one'>
+          <li>
+            <p>To conditionally apply styles with the CSS <code>@media</code> and <code>@import</code> at-rules.</p>
+          </li>
+          <li>
+            <p>To target specific media for the <code>&ltstyle&gt</code>, <code>&ltlink&gt</code>, <code>&ltsource&gt</code>, and other HTML elements with the <code>media=</code> attribute.</p>
+          </li>
+          <li>
+            <p>To test and monitor media states using the <code>Window.matchMedia()</code> and <code>EventTarget.addEventListener()</code> methods.</p>
+          </li>
+        </ul>
+      </section>
+      <section id='Syntax' class='main-section'>
+        <header>
+          Syntax
+        </header>
+        <p class='section-intro'>
+          A media query is composed of an optional media type and any number of media feature expressions, which may optionally be combined in various ways using logical operators. Media queries are case-insensitive.
+        </p>
+        <ul class='level-one'>
+          <li><p>Media types define the broad category of device for which the media query applies: all, print, screen. The type is optional (assumed to be all) except when using the not or only logical operators</p></li>
+          <li><p>Media features describe a specific characteristic of the user agent, output device, or environment:</p>
+            <ul class='level-two'>
+              <li><code>any-hover</code></li>
+              <li><code>any-pointer</code></li>
+              <li><code>aspect-ratio</code></li>
+              <li><code>color</code></li>
+              <li><code>color-gamut</code></li>
+              <li><code>color-index</code></li>
+              <li><code>dynamic-range</code></li>
+              <li><code>forced-colors</code></li>
+              <li><code>grid</code></li>
+              <li><code>height</code></li>
+              <li><code>hover</code></li>
+              <li><code>inverted-colors</code></li>
+              <li><code>monochrome</code></li>
+              <li><code>orientation</code></li>
+              <li><code>overflow-block</code></li>
+              <li><code>overflow-inline</code></li>
+              <li><code>pointer</code></li>
+              <li><code>prefers-color-scheme</code></li>
+              <li><code>prefers-contrast</code></li>
+              <li><code>prefers-reduced-motion</code></li>
+              <li><code>resolution</code></li>
+              <li><code>scripting</code></li>
+              <li><code>update</code></li>
+              <li><code>video-dynamic-range</code></li>
+              <li><code>width</code></li>
+            </ul>
+            <p>For example, the <code>hover</code> feature allows a query to test against whether the device supports hovering over elements. Media feature expressions test for their presence or value, and are entirely optional. Each media feature expression must be surrounded by parentheses.</p>
+          </li>
+          <li>
+            Logical operators can be used to compose a complex media query: <code>not</code>, <code>and</code>, and <code>only</code>. You can also combine multiple media queries into a single rule by separating them with commas.
+          </li>
+        </ul>
+        <p>A media query computes to <code>true</code> when the media type (if specified) matches the device on which a document is being displayed and all media feature expressions compute as true. Queries involving unknown media types are always false.</p>
+      </section>
+      <section id='Targeting_media_types' class='main-section'>
+        <header>
+          Targeting media types
+        </header>
+        <p>Media types describe the general category of a given device. Although websites are commonly designed with screens in mind, you may want to create styles that target special devices such as printers or audio-based screen readers. For example, this CSS targets printers:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media print {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>You can also target multiple devices. For instance, this <code>@media</code> rule uses two media queries to target both screen and print devices:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media screen, print {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+      </section>
+      <section id='Targeting_media_features' class='main-section'>
+        <header>
+          Targeting media features
+        </header>
+        <p>Media features describe the specific characteristics of a given user agent, output device, or environment. For instance, you can apply specific styles to widescreen monitors, computers that use mice, or to devices that are being used in low-light conditions. This example applies styles when the user's primary input mechanism (such as a mouse) can hover over elements:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media (hover: hover) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>Many media features are range features, which means they can be prefixed with <code>min-</code> or <code>max-</code> to express "minimum condition" or "maximum condition" constraints. For example, this CSS will apply styles only if your browser's viewport width is equal to or narrower than 1250px:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media (max-width: 1250px) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>If you create a media feature query without specifying a value, the nested styles will be used as long as the feature's value is not zero (or <code>none</code>, in Level 4). For example, this CSS will apply to any device with a color screen:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media (color) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>If a feature doesn't apply to the device on which the browser is running, expressions involving that media feature are always false.</p>
+      </section>
+      <section id='Creating_complex_media_queries' class='main-section'>
+        <header>
+          Creating complex media queries
+        </header>
+        <p>Sometimes you may want to create a media query that depends on multiple conditions. This is where the logical operators come in: <code>not</code>, <code>and</code>, and <code>only</code>. Furthermore, you can combine multiple media queries into a comma-separated <span class='italic'>list</span>; this allows you to apply the same styles in different situations.</p>
+        <p>The <code>and</code> operator can also combine multiple media features into a single media query. The <code>not</code> operator, meanwhile, negates a media query, basically reversing its normal meaning. The <code>only</code> operator prevents older browsers from applying the styles.</p>
+        <div class='note'>
+          <p><span class='important'>Note:</span> In most cases, the all media type is used by default when no other type is specified. However, if you use the not or only operators, you must explicitly specify a media type.</p>
+        </div>
+
+        <section class='sub-section'>
+          <header>
+            Combining multiple types or features
+          </header>
+          <p>The <code>and</code> keyword combines a media feature with a media type or other media features. This example combines two media features to restrict styles to landscape-oriented devices with a width of at least 30 ems:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media (min-width: 30em) and (orientation: landscape) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>To limit the styles to devices with a screen, you can chain the media features to the <code>screen</code> media type:</p>
+        <div class='code-snippet'>
+          <pre>
+            <code>
+    @media screen and (min-width: 30em) and (orientation: landscape) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        </section>
+        <section class='sub-section'>
+          <header>
+            Testing for multiple queries
+          </header>
+          <p>You can use a comma-separated list to apply styles when the user's device matches any one of various media types, features, or states. For instance, the following rule will apply its styles if the user's device has either a minimum height of 680px or is a screen device in portrait mode:</p>
+          <div class='code-snippet'>
+          <pre>
+            <code>
+    @media (min-height: 680px), screen and (orientation: portrait) {
+      /* … */
+    }</code>
+          </pre>
+        </div>
+        <p>Taking the above example, if the user had a printer with a page height of 800px, the media statement would return true because the first query would apply. Likewise, if the user were on a smartphone in portrait mode with a viewport height of 480px, the second query would apply and the media statement would still return true.</p>
+        </section>
+        <section class='sub-section'>
+          <header>
+            Inverting a query's meaning
+          </header>
+          <p>The <code>not</code> keyword inverts the meaning of an entire media query. It will only negate the specific media query it is applied to. (Thus, it will not apply to every media query in a comma-separated list of media queries.) The <code>not</code> keyword can't be used to negate an individual feature query, only an entire media query. The <code>not</code> is evaluated last in the following query:</p>
+          <div class='code-snippet'>
+            <pre>
+              <code>
+    @media not all and (monochrome) {
+      /* … */
+    }</code>
+            </pre>
+          </div>
+          <p>This means that the above query is evaluated like this:</p>
+          <div class='code-snippet'>
+            <pre>
+              <code>
+    @media not (all and (monochrome)) {
+      /* … */
+    }</code>
+            </pre>
+          </div>
+        </section>
+        <section class='sub-section'>
+          <header>Improving compatibility with older browsers</header>
+          <p>The <code>only</code> keyword prevents older browsers that do not support media queries with media features from applying the given styles. <span class='italic'>It has no effect on modern browsers</span>.</p>
+          <div class='code-snippet'>
+            <pre>
+              <code>
+    @media only screen and (color) {
+      /* … */
+    }</code>
+            </pre>
+          </div>
+        </section>
+      </section>
+      <section id='Syntax_improvements_in_Level_4' class='main-section'>
+        <header>Syntax improvements in Level 4</header>
+        <p>The Media Queries Level 4 specification includes some syntax improvements to make media queries using features that have a "range" type, for example width or height, less verbose. Level 4 adds a range context for writing such queries. For example, using the <code>max-</code> functionality for width we might write the following:</p>
+        <div class='note'>
+          <p><span class='important'>Note:</span> The Media Queries Level 4 specification has reasonable support in modern browsers, but some media features are not well supported. See the <a id='level4-link' href='https://developer.mozilla.org/en-US/docs/Web/CSS/@media#browser_compatibility'><code>@media</code> browser compatibility table</a> for more details.</p>
+        </div>
+        <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (max-width: 30em) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        <p>In Media Queries Level 4 this can be written as:</p>
+        <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (width &lt;= 30em) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        <p>Using <code>min-</code> and <code>max-</code> we might test for a width between two values like so:</p>
+        <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (min-width: 30em) and (max-width: 50em) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        <p>This would convert to the Level 4 syntax as:</p>
+        <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (30em &lt;= width &lt;= 50em) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        <p>Media Queries Level 4 also adds ways to combine media queries using full boolean algebra with <span class='bold'>and</span>, <span class='bold'>not</span>, and <span class='bold'>or</span>.</p>
+        <section class='sub-section'>
+          <header>Negating a feature with <code>not</code></header>
+          <p>Using <code>not()</code> around a media feature negates that feature in the query. For example, <code>not(hover)</code> would match if the device had no hover capability:</p>
+          <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (not(hover)) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        </section>
+        <section class='sub-section'>
+          <header>Testing for multiple features with <code>or</code></header>
+          <p>You can use <code>or</code> to test for a match among more than one feature, resolving to <code>true</code> if any of the features are true. For example, the following query tests for devices that have a monochrome display or hover capability:</p>
+          <div class='code-snippet'>
+            <pre>
+              <code>
+    @media (not (color)) or (hover) {
+      /* … */
+    }</code>
+            </pre>
+        </div>
+        </section>
+      </section>
+      <section id='Reference' class='main-section'>
+        <header>Reference</header>
+        <p>All the documentation in this page is taken from <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries' id='reference-link'>MDN web docs</a>.</p>
+      </section>
+    </main>
+  </body>
+</html>
