@@ -1,0 +1,307 @@
+:root {
+    --queamor-color1: #82512C;
+    --queamor-color2: #D3A56D;
+}
+
+* , *::before, *::after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    color: black;
+    background-color: white;
+}
+
+header {
+    color: white;
+}
+
+main {
+    width:100%;
+    max-width: 900px;
+    margin: 10rem auto 5rem;
+}
+
+footer {
+    width: 100%;
+    height: 8rem;
+    padding: 3rem;
+    text-align: center;
+    background-color: var(--queamor-color2);
+    color: white;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.1rem;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    margin: 5rem 0 0.5rem;
+    border: 0.1rem solid var(--queamor-color2);
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+iframe, fieldset {
+    border-style: none;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 8rem;
+    position:fixed;
+    top:0;
+    left:0;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--queamor-color1);
+}
+
+.nav-bar a {
+    color: white;
+}
+
+.logo {
+    padding-left: 2rem;
+    display: block;
+    width: 30%;
+    height: auto;
+}
+
+.logo img{
+    width: 100%;
+    max-width: 20rem;
+}
+
+.nav-bar-list{
+    width: 50%;
+    padding: 0 1rem;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+}
+
+.nav-bar-list li {
+    width: fit-content;
+    font-size: 2rem;
+    list-style-type: none;
+}
+
+.main-img {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    margin: 1rem auto 0;
+    background-color: var(--queamor-color1);
+}
+
+.main-img img{
+    width: 38rem;
+    height: 38rem;
+    margin: 1rem 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 1rem 0 1rem;
+    font-size: 2.3rem;
+    text-align: center;
+}
+
+#features-section, #products-section, #showcase-section {
+    scroll-margin-top: 12rem;
+}
+
+#features-section {
+    margin: 5rem auto 0;
+    display: grid;
+    grid-template-columns: minmax(5rem, 1fr) minmax(20rem, 3fr);
+    row-gap: 5rem;
+    align-items: center;
+}
+
+.feature-icon {
+    font-size: 7rem;
+    text-align: center;
+    color: var(--queamor-color2);
+}
+
+#products-section {
+    margin: 5rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.product {
+    width: 28rem;
+    border-radius: 2rem;
+    background-color: var(--queamor-color2);
+    text-align: center;
+}
+
+.product-img {
+    margin: 1.5rem auto 1.5rem;
+    width: 25rem;
+    height: 25rem;
+    border: 1rem solid var(--queamor-color1);
+    border-radius: 50%;
+    object-fit:cover;
+}
+
+.product-name {
+    width: 100%;
+    padding: 1.5rem 0 1.5rem;
+    border-radius: 2rem 2rem 0 0;
+    text-transform: uppercase;
+    background-color: var(--queamor-color1);
+    color:white;
+}
+
+#showcase-section {
+    margin: 5rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#video {
+    width: 33.7rem;
+    height: 60rem;
+    margin: 0 auto;
+    border-style: none;
+}
+
+#contact-us-section {
+    width: 100%;
+    text-align: center;
+}
+
+#email {
+    width: 70%;
+    display: block;
+    margin: 2rem auto;
+    padding:1rem 1rem;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    background-color: var(--queamor-color2);
+    text-align: center;
+    border-style: none;
+}
+
+#email::placeholder {
+    color:var(--queamor-color1);
+}
+
+#more-info-fieldset {
+    width: fit-content;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.checkbox-label {
+    display: block;
+    margin: 1.8rem;
+    font-size: 1.8rem;
+}
+
+.inline{
+    width:unset;
+    margin: 0 1.5rem 0 0;
+    vertical-align: middle;
+    transform: scale(1.5);
+    accent-color: var(--queamor-color1);
+  }
+
+#submit {
+    width: 50%;
+    font-size: 2rem;
+    line-height: 4rem;
+    margin-top: 1rem;
+    background-color: var(--queamor-color1);
+    color: white;
+    border-style: none;
+}
+
+.footer-text {
+    font-size: 2rem;
+}
+
+.github-anchor {
+    color:white;
+}
+
+.github-anchor:hover {
+    background-color: var(--queamor-color1);
+}
+
+@media only screen and (max-width:800px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    p {
+        font-size: 1.5rem;
+    }
+
+    .nav-bar {
+        align-items: center;
+    }
+
+    .nav-bar-list li {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        padding-left: 1rem;
+    }
+
+    .nav-bar-list {
+        width:70%
+    }
+
+    #products-section {
+        justify-content:center;
+    }
+    .product {
+        margin-bottom: 2rem;
+    }
+
+    #video {
+        margin: 1rem auto;
+    }
+}
