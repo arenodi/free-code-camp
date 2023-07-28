@@ -1,0 +1,35 @@
+.full-viewport {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background-color: #5c5c5c;
+  padding: 10px;
+}
+.quote-main {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #e6e6e6;
+}
+
+.quote-text {
+  font-size: 22px;
+}
+
+.space-between::before {
+  content: "";
+  margin-left: 10px;
+}
+
+.space-between::after {
+  content: "";
+  margin-right: 10px;
+}
+
+.author-text {
+  font-size: 18px;
+}
