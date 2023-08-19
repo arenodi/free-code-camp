@@ -25,7 +25,7 @@ then
     # If not found
     if [[ -z $ELEMENT_NAME ]]
     then
-      echo -e "\nI could not find that element in the database."
+      echo "I could not find that element in the database."
     else
       # Get symbol
       ELEMENT_SYMBOL=$($PSQL "SELECT symbol $Q_JOINED WHERE atomic_number=$ATOMIC_NUMBER;")
@@ -50,7 +50,7 @@ then
       # If not found
       if [[ -z $ELEMENT_NAME ]]
       then
-        echo -e "\nI could not find that element in the database."
+        echo "I could not find that element in the database."
       else
         # Get atomic number
         ATOMIC_NUMBER=$($PSQL "SELECT atomic_number $Q_JOINED WHERE symbol='$ELEMENT_SYMBOL';")
@@ -75,7 +75,7 @@ then
         # If not found
         if [[ -z $ELEMENT_SYMBOL ]]
         then
-          echo -e "\nI could not find that element in the database."
+          echo "I could not find that element in the database."
         else
           # Get atomic number
           ATOMIC_NUMBER=$($PSQL "SELECT atomic_number $Q_JOINED WHERE symbol='$ELEMENT_SYMBOL';")
@@ -91,11 +91,11 @@ then
           DISPLAY_INFORMATION $ATOMIC_NUMBER $ELEMENT_NAME $ELEMENT_SYMBOL $ELEMENT_TYPE $ELEMENT_MASS $ELEMENT_M_P_C $ELEMENT_B_P_C
         fi
       else
-        echo -e "\nI could not find that element in the database."
+        echo "I could not find that element in the database."
       fi
     fi
   fi
 else
   # Request argument
-  echo -e "\nPlease provide an element as an argument."
+  echo "Please provide an element as an argument."
 fi
